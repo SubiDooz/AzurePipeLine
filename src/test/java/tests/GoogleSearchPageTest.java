@@ -25,7 +25,7 @@ public class GoogleSearchPageTest {
 		options.addArguments("--disable-extensions");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-gpu");
-		options.addArguments("--headless");
+		//options.addArguments("--headless");
 		
 		
 		driver = new ChromeDriver(options);
