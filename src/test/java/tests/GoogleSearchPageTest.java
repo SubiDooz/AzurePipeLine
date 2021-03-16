@@ -21,9 +21,12 @@ public class GoogleSearchPageTest {
 		options.addArguments("start-maximized");
 		options.addArguments("disable-infobars");
 		options.addArguments("--disable-extensions");
-		options.addArguments("--disable-dev-shm-usage");
+		//options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--disable-extensions");
 		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-gpu");
+		options.addArguments("--headless");
+		
 		
 		driver = new ChromeDriver(options);
 		
