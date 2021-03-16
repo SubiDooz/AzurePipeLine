@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -15,9 +16,20 @@ public class GoogleSearchPageTest {
 	@Test
 	public void validatePage() {
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("start-maximized");
+		options.addArguments("disable-infobars");
+		options.addArguments("--disable-extensions");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--disable-extensions");
+		options.addArguments("--no-sandbox");
+		
+		driver = new ChromeDriver(options);
+		
+		//driver.manage().window().maximize();
 		driver.get("https://www.google.com");
+		
 		
 		GoogleSearchPage gspObj = new GoogleSearchPage(driver);
 		gspObj.enterValInSearchBox("Azure");
